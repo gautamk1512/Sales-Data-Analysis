@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analysis Result - {{ product }}</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; text-align: center; }
+        h1 { color: #333; }
+        .stats { margin: 20px auto; width: 50%; text-align: left; border: 1px solid #ddd; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .stats p { font-size: 18px; margin: 10px 0; }
+        img { max-width: 80%; height: auto; margin-top: 20px; border: 1px solid #ddd; }
+        a { display: inline-block; margin-top: 20px; text-decoration: none; color: #007bff; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>Analysis Results for: {{ product }}</h1>
+    
+    <div class="stats">
+        {% if uploaded_image_url %}
+            <h3>Product Image</h3>
+            <img src="{{ uploaded_image_url }}" alt="Uploaded Image of {{ product }}" style="max-width: 300px; border-radius: 8px;">
+        {% endif %}
+
+        <p><strong>Description:</strong> <em>{{ description }}</em></p>
+        <p><strong>Total Revenue:</strong> {{ revenue }}</p>
+        <p><strong>Total Quantity Sold:</strong> {{ quantity }}</p>
+        <p><strong>Average Price per Unit:</strong> {{ avg_price }}</p>
+    </div>
+
+    <h3>Sales Trend Chart</h3>
+    <img src="{{ plot_url }}" alt="Sales Trend for {{ product }}">
+    
+    <br>
+    <a href="/">Back to Home</a>
+</body>
+</html>

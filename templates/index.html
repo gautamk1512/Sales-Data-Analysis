@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Analysis</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; text-align: center; }
+        h1 { color: #333; }
+        select, button { padding: 10px; font-size: 16px; margin: 10px; }
+        button { background-color: #28a745; color: white; border: none; cursor: pointer; }
+        button:hover { background-color: #218838; }
+    </style>
+</head>
+<body>
+    <h1>Sales Data Analysis</h1>
+    <p>Select a product to analyze its performance:</p>
+    
+    <form action="/analyze" method="post" enctype="multipart/form-data">
+        <label for="product">Choose a Product:</label>
+        <select name="product" id="product">
+            {% for product in products %}
+                <option value="{{ product }}">{{ product }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <label for="product_image">Upload Product Image (Optional):</label>
+        <input type="file" name="product_image" id="product_image" accept="image/*">
+        <br><br>
+        <button type="submit">Analyze Product</button>
+    </form>
+</body>
+</html>
